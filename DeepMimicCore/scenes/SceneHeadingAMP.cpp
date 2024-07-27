@@ -1,5 +1,7 @@
 #include "SceneHeadingAMP.h"
 
+#include <iostream>
+
 double cSceneHeadingAMP::CalcReward(int agent_id) const
 {
 	const bool enable_min_tar_vel = mEnableMinTarVel;
@@ -35,6 +37,18 @@ double cSceneHeadingAMP::CalcReward(int agent_id) const
 			vel_reward = std::exp(-mVelRewardScale * vel_err * vel_err);
 		}
 
+		// int root_id = character->GetRootID();
+		// const cSimBodyJoint& root = character->GetJoint(root_id);
+		// tQuaternion rot = root.CalcWorldRotation();
+
+		// tVector root_dir = cMathUtil::RotateMat(rot) * tVector(1, 0, 0, 0);
+		// root_dir(1) = 0;
+		// root_dir.normalize();
+
+		// double new_reward = root_dir.dot(-tar_dir);
+		// std::cout << "new reward: " << new_reward << std::endl;
+
+		// reward = vel_reward + new_reward;
 		reward = vel_reward;
 	}
 

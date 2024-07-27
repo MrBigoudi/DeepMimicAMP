@@ -142,7 +142,7 @@ export THIRD=$PWD
 
 bullet
 eigen
-freeglut
+# freeglut
 glew
 swig4
 
